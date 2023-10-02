@@ -1,0 +1,19 @@
+<h1 class="font-bold text-2xl text-center">Lista de productos</h1>
+
+<div id="listProducts" class="w-full mt-8 m-auto p-4 bg-slate-200 flex flex-wrap justify-center gap-4">
+    {{#each products}}
+    <div class="flex flex-wrap border-2 rounded-md p-4 mt-4 bg-sky-300">
+      <ul>
+        <li><span class="uppercase font-bold">id:</span> {{this.id}}</li>
+        <li><span class="uppercase font-bold">título:</span> {{this.title}}</li>
+        <li><span class="uppercase font-bold">descripción:</span> {{this.description}}</li>
+        <li><span class="uppercase font-bold">precio:</span> {{this.price}}</li>
+        <li><span class="uppercase font-bold">estado:</span> {{this.status}}</li>
+        <li><span class="uppercase font-bold">código:</span> {{this.code}}</li>
+        <li><span class="uppercase font-bold">cantidad:</span> {{this.stock}}</li>
+        <li><span class="uppercase font-bold">categoria:</span> {{this.category}}</li>
+      </ul>
+    </div>
+    {{/each}}
+  </div>
+</div>

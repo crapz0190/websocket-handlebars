@@ -1,0 +1,181 @@
+<h1 class="text-4xl text-center">Lista de productos con websocket {{data}}</h1>
+<div class="flex justify-evenly align-center">
+  <div class="w-1/3">
+    <form id="form" method="post" class="w-full m-3">
+    <fieldset class="w-full border border-slate-900 rounded-md flex flex-col items-center p-5 gap-2">
+      <legend class="text-2xl">Actualizar o eliminar productos</legend>
+      <section class="w-full text-center">
+        <section>
+          <label for="idProduct" class="uppercase font-bold flex justify-between items-center">id del producto
+            <input id="idProduct" type="text" name="idProduct" placeholder="example: id..." class="w-2/3 px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
+            focus:outline-none focus:border-sky-700 focus:ring-1 focus:ring-sky-700
+            ">
+          </label>
+          <div class="flex justify-between">
+            <button id="btnUpdate"
+              class="text-white border border-slate-300 rounded-md w-full mt-2 mb-2 px-5 py-2 bg-sky-900 cursor-pointer hover:bg-slate-600 duration-300">
+              Actualizar
+            </button>
+            <button id="btnDelete"
+              class="text-white border border-slate-300 rounded-md w-full mt-2 mb-2 px-5 py-2 bg-red-900 cursor-pointer hover:bg-slate-600 duration-300">
+              Delete
+            </button>
+          </div>
+
+        </section>
+
+        <section class="w-full border border-slate-900 rounded-md flex flex-col p-5 gap-2">
+          <h2 class="text-2xl text-center mb-10 border-b-2 border-gray-500">Campo a actualizar</h2>
+          <section>
+            <label for="idProductForm" class="flex justify-between items-center uppercase font-bold">id
+              <input disabled id="idProductForm" type="text" name="idProduct" placeholder="example: idProduct..." class="cursor-pointer text-slate-500 w-2/3 px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
+              focus:outline-none focus:border-sky-700 focus:ring-1 focus:ring-sky-700
+              ">
+            </label>
+          </section>
+          <section>
+            <label for="title" class="flex justify-between items-center uppercase font-bold">titulo
+              <input id="title" type="text" name="title" placeholder="example: title..." class="w-2/3 px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
+              focus:outline-none focus:border-sky-700 focus:ring-1 focus:ring-sky-700
+              ">
+            </label>
+          </section>
+          <section>
+            <label for="description" class="flex justify-between items-center uppercase font-bold">descripción
+              <input id="description" type="text" name="description" placeholder="example: descripton..." class="w-2/3 px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
+              focus:outline-none focus:border-sky-700 focus:ring-1 focus:ring-sky-700
+              ">
+            </label>
+          </section>
+          <section>
+            <label for="price" class="flex justify-between items-center uppercase font-bold">precio
+              <input id="price" type="number" name="price" placeholder="example: price..." class="w-2/3 px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
+              focus:outline-none focus:border-sky-700 focus:ring-1 focus:ring-sky-700
+              ">
+            </label>
+          </section>
+          <section>
+            <label for="status" class="flex justify-between items-center uppercase font-bold">estado
+              <input id="status" disabled type="text" name="status" placeholder="example: true..." class="cursor-pointer text-slate-500 w-2/3 px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
+              focus:outline-none focus:border-sky-700 focus:ring-1 focus:ring-sky-700
+              ">
+            </label>
+          </section>
+          <section>
+            <label for="code" class="flex justify-between items-center uppercase font-bold">codigo
+              <input id="code" type="text" name="code" placeholder="example: code.." class="w-2/3 px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
+              focus:outline-none focus:border-sky-700 focus:ring-1 focus:ring-sky-700
+              ">
+            </label>
+          </section>
+          <section>
+            <label for="stock" class="flex justify-between items-center uppercase font-bold">catidad
+              <input id="stock" type="number" name="stock" placeholder="example: stock.." class="w-2/3 px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
+              focus:outline-none focus:border-sky-700 focus:ring-1 focus:ring-sky-700
+              ">
+            </label>
+          </section>
+          <section>
+            <label for="category" class="flex justify-between items-center uppercase font-bold">categoria
+              <input id="category" type="text" name="category" placeholder="example: category.." class="w-2/3 px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
+              focus:outline-none focus:border-sky-700 focus:ring-1 focus:ring-sky-700
+              ">
+            </label>
+          </section>
+        </section>
+      </section>
+
+      <div id="submit"
+        class="text-center text-white border border-slate-300 rounded-md w-full px-5 py-2 bg-slate-900 cursor-pointer hover:bg-slate-600 duration-300">
+        Enviar
+      </div>
+    </fieldset>
+    </form>
+
+    <form id="form" method="post" class="w-full m-3">
+    <fieldset class="w-full border border-slate-900 rounded-md flex flex-col items-center p-5 gap-2">
+      <legend class="text-2xl">Crear productos</legend>
+        <section class="w-full border border-slate-900 rounded-md flex flex-col p-5 gap-2">
+          <h2 class="text-2xl text-center mb-10 border-b-2 border-gray-500">Campos a completar</h2>
+          <section>
+            <label for="newtitle" class="flex justify-between items-center uppercase font-bold">titulo
+              <input id="newtitle" type="text" name="title" placeholder="example: title..." class="w-2/3 px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
+              focus:outline-none focus:border-sky-700 focus:ring-1 focus:ring-sky-700
+              ">
+            </label>
+          </section>
+          <section>
+            <label for="newdescription" class="flex justify-between items-center uppercase font-bold">descripción
+              <input id="newdescription" type="text" name="description" placeholder="example: descripton..." class="w-2/3 px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
+              focus:outline-none focus:border-sky-700 focus:ring-1 focus:ring-sky-700
+              ">
+            </label>
+          </section>
+          <section>
+            <label for="newprice" class="flex justify-between items-center uppercase font-bold">precio
+              <input id="newprice" type="number" name="price" placeholder="example: price..." class="w-2/3 px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
+              focus:outline-none focus:border-sky-700 focus:ring-1 focus:ring-sky-700
+              ">
+            </label>
+          </section>
+          <section>
+            <label for="newstatus" class="flex justify-between items-center uppercase font-bold">estado
+              <input id="newstatus" type="text" name="status" placeholder="example: true..." class="cursor-pointer w-2/3 px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
+              focus:outline-none focus:border-sky-700 focus:ring-1 focus:ring-sky-700
+              ">
+            </label>
+          </section>
+          <section>
+            <label for="newcode" class="flex justify-between items-center uppercase font-bold">codigo
+              <input id="newcode" type="text" name="code" placeholder="example: code.." class="w-2/3 px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
+              focus:outline-none focus:border-sky-700 focus:ring-1 focus:ring-sky-700
+              ">
+            </label>
+          </section>
+          <section>
+            <label for="newstock" class="flex justify-between items-center uppercase font-bold">catidad
+              <input id="newstock" type="number" name="stock" placeholder="example: stock.." class="w-2/3 px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
+              focus:outline-none focus:border-sky-700 focus:ring-1 focus:ring-sky-700
+              ">
+            </label>
+          </section>
+          <section>
+            <label for="newcategory" class="flex justify-between items-center uppercase font-bold">categoria
+              <input id="newcategory" type="text" name="category" placeholder="example: category.." class="w-2/3 px-3 py-2 bg-white border border-slate-300 rounded-md text-sm shadow-sm placeholder-slate-400
+              focus:outline-none focus:border-sky-700 focus:ring-1 focus:ring-sky-700
+              ">
+            </label>
+          </section>
+        </section>
+      </section>
+
+      <div id="newsubmit"
+        class="text-center text-white border border-slate-300 rounded-md w-full px-5 py-2 bg-slate-900 cursor-pointer hover:bg-slate-600 duration-300">
+        Enviar
+      </div>
+    </fieldset>
+    </form>
+  </div>
+  
+  <div id="listProducts" class="w-2/4 mt-8 m-auto p-4 bg-slate-200 flex flex-wrap justify-center gap-4">
+    {{#each products}}
+    <div class="flex flex-wrap border-2 rounded-md p-4 mt-4 bg-sky-300">
+      <ul>
+        <li><span class="uppercase font-bold">id:</span> {{this.id}}</li>
+        <li><span class="uppercase font-bold">título:</span> {{this.title}}</li>
+        <li><span class="uppercase font-bold">descripción:</span> {{this.description}}</li>
+        <li><span class="uppercase font-bold">precio:</span> {{this.price}}</li>
+        <li><span class="uppercase font-bold">estado:</span> {{this.status}}</li>
+        <li><span class="uppercase font-bold">código:</span> {{this.code}}</li>
+        <li><span class="uppercase font-bold">cantidad:</span> {{this.stock}}</li>
+        <li><span class="uppercase font-bold">categoria:</span> {{this.category}}</li>
+      </ul>
+    </div>
+    {{/each}}
+  </div>
+</div>
+
+{{!-- instancia del socket del cliente --}}
+<script src="/socket.io/socket.io.js"></script>
+{{!-- referenciamos en index.js en el index.hbs --}}
+<script src="/js/index.js"></script>
